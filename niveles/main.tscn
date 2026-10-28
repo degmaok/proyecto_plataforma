@@ -84,4 +84,4 @@ DashSpeed = 750.0
 DashTime = 0.2
 
 [node name="ZonaMuerte" parent="." unique_id=759584684 instance=ExtResource("4_36kcp")]
-position = Vector2(75, 444)
+position = Vector2(503, 428)
