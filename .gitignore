@@ -1,0 +1,12 @@
+# Caché de Godot 4
+.godot/
+
+# Archivos compilados de C# (.NET)
+bin/
+obj/
+.mono/
+*.csproj.user
+
+# Archivos del sistema operativo (Mac/Windows)
+.DS_Store
+Thumbs.db

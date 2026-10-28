@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdk6ba0x5qoqj"]
+
+[ext_resource type="Script" uid="uid://c8nf764oha354" path="res://niveles/ZonaMuerte.cs" id="1_smyjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nse13"]
+size = Vector2(6000, 200)
+
+[node name="ZonaMuerte" type="Area2D" unique_id=759584684]
+script = ExtResource("1_smyjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448350593]
+shape = SubResource("RectangleShape2D_nse13")

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
+
+[ext_resource type="PackedScene" uid="uid://c72o0olo25ag2" path="res://plataforma/plataforma.tscn" id="1_ib2p1"]
+[ext_resource type="Script" uid="uid://cqb75hbgl502" path="res://plataforma/Plataforma.cs" id="2_36kcp"]
+[ext_resource type="PackedScene" uid="uid://b54fiaetk82d1" path="res://jugador/personaje.tscn" id="3_iu1qb"]
+[ext_resource type="PackedScene" uid="uid://bdk6ba0x5qoqj" path="res://niveles/ZonaMuerte.tscn" id="4_36kcp"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_ib2p1"]
+script/source = "using Godot;
+
+public partial class zonaMuerte : Area2D
+{
+	public override void _Ready()
+	{
+		BodyEntered += OnBodyEntered;
+	}
+
+	private void OnBodyEntered(Node2D body)
+	{
+		if (body is Personaje p)
+		{
+			// Llama al método Reaparecer de forma diferida directamente
+			p.CallDeferred(Personaje.MethodName.Reaparecer);
+		}
+	}
+}
+"
+
+[node name="Main" type="Node2D" unique_id=2053104530]
+script = SubResource("CSharpScript_ib2p1")
+
+[node name="plataforma13" parent="." unique_id=1470195473 instance=ExtResource("1_ib2p1")]
+position = Vector2(1236, 75)
+script = ExtResource("2_36kcp")
+
+[node name="plataforma9" parent="." unique_id=2047693712 instance=ExtResource("1_ib2p1")]
+position = Vector2(1492, 223)
+script = ExtResource("2_36kcp")
+
+[node name="plataforma8" parent="." unique_id=1004431417 instance=ExtResource("1_ib2p1")]
+position = Vector2(2279, 136)
+script = ExtResource("2_36kcp")
+
+[node name="plataforma6" parent="." unique_id=1313745065 instance=ExtResource("1_ib2p1")]
+position = Vector2(2338, 215)
+script = ExtResource("2_36kcp")
+Size = Vector2(800, 32)
+
+[node name="plataforma5" parent="." unique_id=871393376 instance=ExtResource("1_ib2p1")]
+position = Vector2(0, -57)
+script = ExtResource("2_36kcp")
+Size = Vector2(150, 32)
+
+[node name="plataforma4" parent="." unique_id=85207175 instance=ExtResource("1_ib2p1")]
+position = Vector2(643, 239)
+script = ExtResource("2_36kcp")
+Size = Vector2(1000, 32)
+
+[node name="plataforma2" parent="." unique_id=588573220 instance=ExtResource("1_ib2p1")]
+position = Vector2(643, 165)
+script = ExtResource("2_36kcp")
+Size = Vector2(100, 60)
+Golpeable = true
+
+[node name="plataforma14" parent="." unique_id=1651756614 instance=ExtResource("1_ib2p1")]
+position = Vector2(904, 150)
+script = ExtResource("2_36kcp")
+Size = Vector2(100, 60)
+Golpeable = true
+
+[node name="plataforma15" parent="." unique_id=1860301126 instance=ExtResource("1_ib2p1")]
+position = Vector2(1717, 136)
+script = ExtResource("2_36kcp")
+Size = Vector2(100, 60)
+Golpeable = true
+
+[node name="personaje" parent="." unique_id=837623029 instance=ExtResource("3_iu1qb")]
+texture_filter = 4
+position = Vector2(-18, -163)
+Speed = 270.0
+JumpVelocity = -1000.0
+Gravity = 2000.0
+DashSpeed = 750.0
+DashTime = 0.2
+
+[node name="ZonaMuerte" parent="." unique_id=759584684 instance=ExtResource("4_36kcp")]
+position = Vector2(75, 444)

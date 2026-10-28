@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b54fiaetk82d1"]
+
+[ext_resource type="Script" uid="uid://coqxycugp370e" path="res://jugador/Personaje.cs" id="1_4e5bt"]
+[ext_resource type="Texture2D" uid="uid://cnj6umo20u2jf" path="res://arte/qiW94K.png" id="2_ltgau"]
+[ext_resource type="PackedScene" uid="uid://qqy73qx0wyia" path="res://proyectiles/Bala.tscn" id="2_yppqc"]
+[ext_resource type="Texture2D" uid="uid://dmj37yskidy41" path="res://arte/agachado.png" id="3_gj0cs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8uil"]
+size = Vector2(37, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nse13"]
+size = Vector2(36, 30)
+
+[node name="personaje" type="CharacterBody2D" unique_id=837623029]
+script = ExtResource("1_4e5bt")
+BalaScene = ExtResource("2_yppqc")
+TexturaAgachado = ExtResource("3_gj0cs")
+AlturaAgachado = 12.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112117333]
+position = Vector2(6, -9)
+shape = SubResource("RectangleShape2D_f8uil")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1531059271]
+offset_left = -14.0
+offset_top = -33.0
+offset_right = 19.0
+offset_bottom = 21.0
+color = Color(0.8392157, 0.03529412, 0.11764706, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120603225]
+position = Vector2(3, -10)
+scale = Vector2(0.34343436, 0.36241612)
+texture = ExtResource("2_ltgau")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1980344073]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=306202067]
+position = Vector2(3, -20)
+shape = SubResource("RectangleShape2D_nse13")
+
+[node name="ColorRect" type="ColorRect" parent="Hitbox" unique_id=1315779885]
+offset_left = 4.0
+offset_top = -26.0
+offset_right = 47.0
+offset_bottom = 11.0
+color = Color(1, 1, 0.39607844, 0.2627451)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=783083680]
+offset = Vector2(60, 0)
